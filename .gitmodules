@@ -2,3 +2,7 @@
 	path = storage
 	url = git@github.com:OCA/storage.git
 	branch = 17.0
+[submodule "server-env"]
+	path = server-env
+	url = git@github.com:OCA/server-env.git
+	branch = 17.0
