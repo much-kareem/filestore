@@ -1,0 +1,4 @@
+[submodule "storage"]
+	path = storage
+	url = git@github.com:OCA/storage.git
+	branch = 17.0
