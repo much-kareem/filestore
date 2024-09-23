@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+	<function model="ir.config_parameter" name="set_param" eval="('ir_attachment.s3_delete','False')" />
+	<function model="ir.config_parameter" name="set_param" eval="('ir_attachment.s3_cache','True')" />
+	<function model="ir.config_parameter" name="set_param" eval="('ir_attachment.aws_use_ssl','True')" />
+	
+</odoo>
