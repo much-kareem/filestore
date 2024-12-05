@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="res_config_settings_view_form" model="ir.ui.view">
+		<field name="name">res.config.settings.view.form.oi_s3_store</field>
+		<field name="model">res.config.settings</field>
+		<field name="priority" eval="100" />
+		<field name="inherit_id" ref="base.res_config_settings_view_form" />
+		<field name="arch" type="xml">
+			<xpath expr="//form" position="inside">
+				<app name="oi_s3_store" data-string="S3 Storage" string="S3 Storage" groups="base.group_system">
+					<block title="S3 Storage" name="s3_store_setting_container">
+						<setting>
+							<field name="attachment_location" widget="radio" />
+						</setting>
+						<setting invisible="attachment_location != 's3'">
+							<field name="s3_bucket" required="attachment_location == 's3'" string="Bucket Name" />
+						</setting>
+						<setting invisible="attachment_location != 's3'">
+							<field name="aws_region_name" string="Region Name" />
+						</setting>
+						<setting invisible="attachment_location != 's3'">
+							<field name="aws_endpoint_url" string="End point URL" style="display: unset;" />
+						</setting>
+						<setting invisible="attachment_location != 's3'">
+							<field name="aws_access_key_id" string="Access Key" password="True" />
+						</setting>
+						<setting invisible="attachment_location != 's3'">
+							<field name="aws_secret_access_key" string="Secret Key" password="True"/>
+						</setting>
+						<setting invisible="attachment_location != 's3'">
+							<field name="aws_use_ssl" string="Use SSL" />
+						</setting>
+						<setting invisible="attachment_location != 's3'">
+							<field name="aws_api_version" string="API Version" />
+						</setting>
+						<setting invisible="attachment_location != 's3'">
+							<field name="aws_verify" string="Verify SSL certificates" />
+						</setting>
+						<setting invisible="attachment_location != 's3'">
+							<field name="s3_delete" string="Delete s3 file when attachment deleted"/>
+						</setting>
+						<setting invisible="attachment_location != 's3'">
+							<field name="s3_cache" string="Cache in file system"/>
+						</setting>
+					</block>
+				</app>
+			</xpath>
+		</field>
+	</record>
+
+</odoo>

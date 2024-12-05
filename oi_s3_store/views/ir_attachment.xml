@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="view_attachment_form" model="ir.ui.view">
+		<field name="name">ir.attachment.form</field>
+		<field name="model">ir.attachment</field>
+		<field name="inherit_id" ref="base.view_attachment_form" />
+		<field name="arch" type="xml">
+			<field name="mimetype" position="after">
+				<field name="content_location" groups="base.group_no_one"/>
+				<field name="s3_key" groups="base.group_no_one" invisible="not s3_key" />
+				<field name="store_fname" groups="base.group_no_one" invisible="not store_fname" />
+			</field>			
+		</field>
+	</record>
+
+	<record id="view_attachment_search" model="ir.ui.view">
+		<field name="name">ir.attachment.form</field>
+		<field name="model">ir.attachment</field>
+		<field name="inherit_id" ref="base.view_attachment_search" />
+		<field name="arch" type="xml">
+			<search>
+				<separator/>
+				<filter name="location_s3" string="Content on S3" domain="[('s3_key', '!=', False)]"/>
+				<filter name="location_file" string="Content on File System" domain="[('store_fname', '!=', False), ('s3_key', '=', False)]"/>
+				<filter name="location_db" string="Content on Database" domain="[('s3_key', '=', False), ('store_fname', '=', False)]"/>
+			</search>		
+		</field>
+	</record>
+
+
+</odoo>

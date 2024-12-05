@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+	<record id="act_attachment_content_to_db" model="ir.actions.server">
+		<field name="name">Move Content to Database</field>
+		<field name="state">code</field>
+		<field name="model_id" ref="model_ir_attachment" />
+		<field name="binding_model_id" ref="model_ir_attachment" />
+		<field name="groups_id" eval="[(4, ref('base.group_system'))]" />
+		<field name="code">records._move_content('db')</field>
+	</record>
+
+	<record id="act_attachment_content_to_s3" model="ir.actions.server">
+		<field name="name">Move Content to S3</field>
+		<field name="state">code</field>
+		<field name="model_id" ref="model_ir_attachment" />
+		<field name="binding_model_id" ref="model_ir_attachment" />
+		<field name="groups_id" eval="[(4, ref('base.group_system'))]" />
+		<field name="code">records._move_content('s3')</field>
+	</record>
+
+	<record id="act_attachment_content_to_file" model="ir.actions.server">
+		<field name="name">Move Content to File System</field>
+		<field name="state">code</field>
+		<field name="model_id" ref="model_ir_attachment" />
+		<field name="binding_model_id" ref="model_ir_attachment" />
+		<field name="groups_id" eval="[(4, ref('base.group_system'))]" />
+		<field name="code">records._move_content('file')</field>
+	</record>
+
+			
+</odoo>
